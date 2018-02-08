@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block pagetitle%}创建商品信息{% endblock%}
+ {% block css %}
+<link href="/static/products/css/new.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/css/HoldOn.css">  {% endblock %} 
+{% block content %} 
+<form> 
+    {{ form.as_p }}
+    <input type="submit"/>
+</form>
+{% endblock %} 
+{% block js %}
+{{ form.media }}
+<script type="text/javascript" src="/static/js/HoldOn.min.js"></script>
+<script src="/static/products/js/new.js " rel="stylesheet "></script>
+{% endblock %}

@@ -1,0 +1,72 @@
+.top-slide{
+    height: 420px;
+    background-size: 100% auto;
+    background-position: top center;
+}
+.number
+{ 
+    font-size: 30px;  
+}
+.img_title
+{
+    font-size: 16px;
+}
+.img-holder{
+    overflow: hidden;
+    height: 150px;
+    width: 300px;
+}
+.active-img  { 
+    width: 100%;
+    height: auto;
+}
+.years-wrap{
+    padding: 40px 100px 60px;
+}
+.years{
+    position: relative;
+    border-bottom: 1px solid #cdcdcd;
+    margin: 0 15px;
+}
+.years span{
+    position: absolute;
+    right: 100%;
+    bottom: 100%;
+    font-size: 26px;
+    cursor: pointer;
+}
+.act span{
+    color: #ea5014;
+}
+.col-active-list{
+    margin: 20px 0;
+    display: none;
+}
+.down {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #cdcdcd transparent transparent;
+    margin-left: 4px;
+    cursor: pointer;
+}
+.mt60{
+    margin-top: 60px;
+}
+.mt60 a:visited,.mt60 a:hover,.mt60 a:active{
+    color: #ea5014;
+}
+.img-holder{
+    margin-bottom: 20px;
+}
+.active-img a{
+    display: block;
+}
+.col-xs-4 p{
+    margin-bottom:30px;
+}

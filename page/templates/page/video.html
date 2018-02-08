@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block fixed_menu_class %}fixed_menu_class{%endblock%}
+{% load i18n %}
+{% block pagetitle%}{{product.title}}{% endblock%}
+{% block css %}
+<link href="/static/page/css/pagebase.css" rel="stylesheet">
+<link href="/static/page/css/video.css" rel="stylesheet">
+<script src="/static/page/js/video.js" type="text/javascript"></script>
+ 
+ {% endblock %}
+{% block content %}
+ 
+<div class=" container-title" >
+    <div class="container">
+        <div class="items_holder">
+              <h2 class="title orange">{% trans 'Awesome video' %}</h2>
+              <a href="/">{% trans 'Home' %}</a>
+              <a href="javasrcipt:;">/&nbsp;{% trans 'News Center' %}</a> 
+              <a href="javasrcipt:;">/&nbsp;{% trans 'Awesome video' %}</a> 
+        </div> 
+    </div> 
+</div>
+
+<div class="container video video1">
+            {% for page in pages %}
+                {% if page.mark == 'top' %}
+                    <div class="video-first p-r" data-video="{{page.url}}">
+                        <img class="v-pic" src="{{mediaroot}}{{page.pic|safe}}">
+                        <img class="icon" src="/static/img/icon/play.svg" />
+                        <div class="v-title">{{page.title}}</div>
+                        <p class="grey f12">{{page.date| date:"Y-m-d"}}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+</div>  
+<div class="container video video2">
+    <div class="row">
+        
+            {% for page in pages %}
+               {% if page.mark != 'top' %}
+               <div class="col-xs-4">
+                        <div class="video-list p-r" data-video="{{page.url}}">
+                                <img class="v-pic" src="{{mediaroot}}{{page.pic|safe}}">
+                                <img class="icon" src="/static/img/icon/play.svg" />
+                                <div class="v-title">{{page.title}}</div>
+                                <p class="grey f12">{{page.date| date:"Y-m-d"}}</p>
+                        </div> 
+                    </div>   
+                 {% endif %}
+            {% endfor %}
+        
+       
+        
+    </div> 
+</div>
+<!-- 弹出视频播放框 -->
+<div class="v-wrap">
+    <img class="close" src="/static/img/icon/w_close.svg" />
+    <video width="100%" src="" controls>
+    视频无法播放
+    </video>
+</div>
+{% endblock%}
+{% block js %} 
+<script type="text/javascript " src="/static/js/swiper-3.4.2.jquery.min.js "></script>
+<script> 
+    $(document).ready(function () {
+        $('#position').click(function () {
+            location.href = "{% url 'page:page' 'asubrand' 'join' %}?position";
+        });
+    });
+</script>
+{% endblock %}

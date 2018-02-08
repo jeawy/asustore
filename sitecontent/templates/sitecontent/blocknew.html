@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block fixed_menu_class %}fixed_menu_class{%endblock%}
+{% load i18n %}
+{% block pagetitle%}{% trans 'Homepage Content Management' %}{% endblock%}
+{% block css %}
+<link href="/static/sitecontent/css/blocknew.css" rel="stylesheet">
+ {% endblock %}
+{% block content %}
+<form action="" method="post"  enctype="multipart/form-data">
+    {%csrf_token%} 
+    <input type="hidden" name="method" value="detail_file" /> 
+    {% if block_instance %}
+    <input type="hidden" name="blockid" id="blockid" value="{{block_instance.id}}" /> 
+    {% endif %}
+</form>
+<section class="container">
+
+    <div class="row">
+
+        <ul class="form_menu clearfix">
+            <li><a href="">内容管理</a></li>
+            <li><a href="/product/products/?newposition=&parentid=4">发布新职位</a></li>
+            <li><a href="/dept/list/?new">添加体验店</a></li>
+            <li><a href="">权限管理</a></li>
+        </ul>
+        <div class="form_title">内容管理</div>
+        <form class="form_main form-horizontal" action="" method="post"  enctype="multipart/form-data">
+            {%csrf_token%}   
+            <div id="add_input">
+            </div>
+            <div class="form-group">
+                <label for="title" class="col-xs-2 control-label">{% trans "title" %}</label>
+                <div class="col-xs-7">
+                    <input type="text" class="form-control" id="title" name="title" required="required" placeholder="{% trans "title" %}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="url" class="col-xs-2 control-label">链接</label>
+                <div class="col-xs-7">
+                    <input type="text" class="form-control" id="url" name="url" title="url" placeholder="url">
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <label for="status" class="col-xs-2 control-label">{% trans "status" %}</label>
+                <div class="col-xs-2">
+                        <select class="form-control" id="status" name="status" >
+                                <option value ="0">草稿</option>
+                                <option value ="1">发布</option>
+                        </select>
+                </div>
+            
+                    <label for="mark" class="col-xs-1 control-label">标记</label>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="mark" name="mark" title="{% trans "mark" %}" placeholder="{% trans "mark" %}">
+                    </div>
+            </div>
+            <div class="form-group">
+            
+                <div id="wrapper" class="col-xs-2">
+                    <input class="hide" id="fileUpload" type="file" name="pic" />
+                    <div class="img_wrap" id="image-holder">
+                        <img class="thumb-image" src="/static/img/pic1.png" />
+                    </div>
+                </div>
+            
+                <div class="col-xs-8">
+                    <label id="file" for="fileUpload" class="grey-btn common-btn" title="上传图片">浏览图片
+                            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                    </label>
+                    <button type="submit" class="orange-bg white common-btn" title="{% trans "submit" %}">{% trans "submit" %}</button>
+                    <a href="{% url 'product:products' %}" class="orange-bg common-btn btn-text-white" >页面列表</a>
+        <a href="{% url 'product:products' %}?new" class="orange-bg common-btn btn-text-white" >发布新页面</a>
+                </div>
+
+            </div>
+
+        </form>
+        
+        <div class="table_wrap col-sm-12 col-md-12">
+                <table class="table">
+                        <tr class="grey-bg">
+                            <th>序号</th>
+                            <th>{% trans "title" %}</th>
+                            <th>{% trans "picture" %}</th>
+                            <th>链接</th>
+                            <th>{% trans "status" %}</th>
+                            <th>{% trans "mark" %}</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    {% for blocki in blocks %}
+                    <tr class="table_con"> 
+                        <td class="b_id">{{blocki.id}}</td>
+                        <td class="b_title"><a target="__blank" href="{% url 'sitecontent:blockitemcontents' %}?new=&blockid={{blocki.id}}">{{blocki.title}}</a></td>
+                        <td class="b_picture"><a target="__blank" href="{{mediaroot}}{{blocki.pic}}">点击查看图片</a></td>
+                        <td class="b_url"><a target="__blank" href="{{blocki.url}}">{{blocki.url}}</a></td>
+                        
+                        {% if blocki.status == 0 %}
+                        <td class="b_status">草稿</td>
+                        {% else %}
+                        <td class="b_status">发布</td>
+                        {% endif %}
+                        <td class="b_mark">{{blocki.mark}}</td>
+                        <td class="text-center">
+                            <i class="fa fa-pencil-square-o edit" aria-hidden="true" title="编辑"></i>
+                            <i class="fa fa-trash-o" aria-hidden="true" title='删除'></i>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    </div>
+</section>
+{% endblock%}{% block js %}
+<script type="text/javascript" src="/static/sitecontent/js/blocknew.js"></script>
+{% endblock %}

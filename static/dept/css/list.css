@@ -1,0 +1,136 @@
+.add-title{
+    background-color: rgb(249, 249, 248);
+    padding: 20px 15px;
+    font-size: 16px;
+    margin-top: 40px;
+}
+.table-title
+{
+    background-color: rgb(249, 249, 248);
+    padding: 20px 15px;
+    font-size: 16px;
+}
+.new .row{
+    margin-bottom: 20px;
+}
+.input-wrap{
+    padding: 0px;
+}
+.django-ckeditor-widget.col-xs-9{
+    margin-bottom: 20px;
+}
+#cke_id_detail{
+    width: 100%!important;
+}
+label[for=id_detail]{
+    padding: 0 15px;
+}
+.table-striped>tbody>tr:nth-of-type(even){
+    background-color: #f9f9f9;
+  }.table-striped>tbody>tr:nth-of-type(odd){
+    background-color: #fff;
+  }
+  .table>tbody>tr:first-child>td{
+    border-top: 0!important;
+  }
+  .table>thead>tr>th{
+    border-bottom: 0;
+  }
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    padding: 15px 5px!important;
+    border-top:none;
+  }
+  .table th:first-child,.table td:first-child{ 
+    background-size: auto 50%!important;
+    background-position: center 56%!important;
+    background-repeat: no-repeat!important;
+    background: url(/static/img/nub_bg.png);
+  }
+  .table{
+    text-align: center; 
+    background-color: white;
+  } 
+  .col-inline{
+      display: inline-flex;
+  }
+  table select{
+      min-width: 150px;
+      
+  }
+  
+  .tb_search{
+      margin: 20px auto;
+  }
+  .tb_search td{
+      padding-right: 10px;
+  }
+  .top-slide
+  {
+       height: 350px;
+       text-align: center;
+       background-image: url('../img/tu-1.jpg');
+       background-repeat:no-repeat; 
+       background-size:100% 100%;
+       -moz-background-size:100% 100%;
+  }
+  .top-tips{
+      color: white;
+      
+  }
+  .top-slide{
+    padding-right:  0px !important;
+  }
+  .serviceitem{
+    width: 18px; 
+    margin-right: 10px;
+  }
+#mapContainer{
+   height: 320px;
+}
+.map{
+    width: 70%;
+}
+.mapdetail{
+    width: 50%;
+}
+
+.td_right{
+    border-right: 1px solid rgb(181, 182, 182);
+    margin: 10px 0px;
+}
+.tr_dept{
+    padding: 20px !important;
+}
+.detail{
+    margin: 30px auto;
+}
+.service_table p.grey{
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+.store-map{
+    margin:30px 0;
+    padding:20px 0;
+    background-color: #fff;
+}
+table td{
+    vertical-align:middle!important;
+}
+.table.gray.table-striped a:hover{
+    color:initial;
+}
+
+.service_table td img{
+    vertical-align: initial;
+}
+
+.list-warp{
+    padding: 15px;
+    background-color: #fff;
+}
+.border-div{
+    width: 100%;
+    border-left: 1px solid #ddd;
+    height: 40px;
+    padding: 10px 0;
+}
